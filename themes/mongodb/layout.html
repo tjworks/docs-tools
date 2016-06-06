@@ -5,8 +5,10 @@
 
 {%- set render_sidebar = (not embedded) and (not theme_nosidebar|tobool) and (sidebars != []) %}
 {%- set url_root = pathto('', 1) %}
+
 {%  set script_files = script_files + ["_static/lib/bootstrap.js", "_static/lib/jquery.cookie.js", "_static/navbar.js"] %}
-{%- set github_organization = "mongodb" %}
+{%- set github_organization = "tjworks" %}
+
 
 {%- macro translationslink() -%}
   {%- block translationslink %}
@@ -15,11 +17,11 @@
 {%- endmacro -%}
 
 {%- macro editlink(type) -%}
-  <a class="edit-link" href="https://github.com/{{ github_organization }}/{{theme_repo_name}}/blob/{{theme_branch}}/source/{{pagename}}.txt" target="_blank" title="Edit {{pagename}}.txt on GitHub">
+  <a class="edit-link" href="docs.mongoing.com:8080/?name={{pagename}}" target="_blank" title="直接在Github上翻译或者纠错本页面">
     {% if type == 'icon' %}
-      <span class="icon-edit"></span>
+      <span class="icon-edit"></span> <span>翻译或纠错本页面</span>
     {% else %}
-      <span>Edit on Github</span>
+      <span>直接翻译或纠错本页面</span>
     {% endif %}
   </a>
 {%- endmacro -%}
@@ -102,7 +104,7 @@
 {%- endif %}
 
 <head>
-  <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+  <!-- <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'> -->
   {%- block htmltitle %}
     <title>{{ title|striptags|e }}</title>
   {%- endblock -%}
